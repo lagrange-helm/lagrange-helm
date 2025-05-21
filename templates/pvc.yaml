@@ -1,0 +1,16 @@
+{{- if .Values.persistence.enabled -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "lagrange.fullname" . }}
+  labels:
+    {{- include "lagrange.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - ReadWriteOncePod
+  volumeMode: Filesystem
+  storageClassName: {{ .Values.persistence.storageClass | default "" | quote }}
+  resources:
+    requests:
+      storage: 0.25Gi
+{{- end }}

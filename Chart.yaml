@@ -1,0 +1,9 @@
+apiVersion: v2
+name: lagrange
+description: Helm Chart for Lagrange.OneBot
+
+type: application
+
+version: 0.0.1
+
+appVersion: 0.0.1
